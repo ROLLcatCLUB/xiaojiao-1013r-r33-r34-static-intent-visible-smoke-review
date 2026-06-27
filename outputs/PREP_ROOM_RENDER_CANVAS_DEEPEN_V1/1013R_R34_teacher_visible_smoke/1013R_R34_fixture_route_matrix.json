@@ -1,0 +1,57 @@
+[
+  {
+    "input": "课件入口找不到",
+    "intent": "find_courseware_entry",
+    "frame_level": 3,
+    "room_id": "prep_room",
+    "tool_id": "courseware_workspace",
+    "slot_id": "courseware_script",
+    "visible_result": "高亮课堂派生物里的课件工具，并定位到课件/大屏草稿内容区。",
+    "blocked": false,
+    "action_gate_required": false
+  },
+  {
+    "input": "这段教案太乱",
+    "intent": "diagnose_lesson_body_structure",
+    "frame_level": 4,
+    "room_id": "prep_room",
+    "tool_id": "prep_notebook",
+    "slot_id": "teaching_process",
+    "visible_result": "定位到备课本正文和教学过程内容区，只提示结构问题，不改写正文。",
+    "blocked": false,
+    "action_gate_required": false
+  },
+  {
+    "input": "帮我生成大屏",
+    "intent": "preview_classroom_display",
+    "frame_level": 3,
+    "room_id": "prep_room",
+    "tool_id": "classroom_display_preview",
+    "slot_id": "classroom_display_screen",
+    "visible_result": "高亮大屏工具和大屏预览草稿；只展示预览态，不导出、不生成正式课件。",
+    "blocked": false,
+    "action_gate_required": false
+  },
+  {
+    "input": "评价表怎么没有",
+    "intent": "assessment_rubric_missing",
+    "frame_level": 3,
+    "room_id": "prep_room",
+    "tool_id": "source_evidence",
+    "slot_id": "assessment_rubric",
+    "visible_result": "定位到评价表预览，并显示 blocked：评价维度需教师确认。",
+    "blocked": true,
+    "action_gate_required": true
+  },
+  {
+    "input": "我要保存这个课包",
+    "intent": "save_package_requires_confirmation",
+    "frame_level": 3,
+    "room_id": "prep_room",
+    "tool_id": "teacher_action_gate",
+    "slot_id": "confirm_actions",
+    "visible_result": "进入教师确认门；当前只能预览，不能保存、导出或写入正式课包。",
+    "blocked": true,
+    "action_gate_required": true
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "stage_id": "1013R_R32_DERIVATIVE_PREVIEW_SAMPLE_ROOM",
+  "status": "PASS",
+  "validator_pass": true,
+  "created_at": "2026-06-27T12:47:44+00:00",
+  "checks": {
+    "four_derivative_samples_present": true,
+    "uniform_fields_present": true,
+    "assessment_blocked": true,
+    "html_preview_panel_present": true,
+    "readonly_boundaries_intact": true
+  },
+  "failed_checks": []
+}

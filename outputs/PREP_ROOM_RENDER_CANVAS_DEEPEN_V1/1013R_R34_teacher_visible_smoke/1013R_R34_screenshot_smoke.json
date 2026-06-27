@@ -1,0 +1,13 @@
+{
+  "available": false,
+  "mode": "html_textual_smoke_fallback",
+  "required_viewports": [
+    "default_prep_room",
+    "courseware_tool_clicked",
+    "assessment_input_blocked"
+  ],
+  "browser_candidates": [],
+  "playwright_available": false,
+  "fallback_reason": "local Playwright package and browser CLI are unavailable",
+  "screenshot_files": []
+}

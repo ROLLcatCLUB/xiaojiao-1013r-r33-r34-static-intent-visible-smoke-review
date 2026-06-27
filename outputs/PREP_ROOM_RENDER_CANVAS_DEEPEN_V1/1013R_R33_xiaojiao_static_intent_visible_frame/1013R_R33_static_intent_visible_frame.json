@@ -1,0 +1,348 @@
+{
+  "ok": true,
+  "stage": "1013R_R33_XIAOJIAO_STATIC_INTENT_TO_VISIBLE_FRAME",
+  "intent_visible_id": "SHIWEI_XIAOJIAO_STATIC_INTENT_VISIBLE_FRAME_R0",
+  "generated_at": "2026-06-27T12:47:46+00:00",
+  "consumes": {
+    "r27_stage": "1013R_R27_XIAOJIAO_INTENT_FRAME_ROUTER_FIXTURE",
+    "r30_stage": "1013R_R30_VISIBLE_FRAME_CONNECTOR",
+    "r31_stage": "1013R_R31_TOOL_CONTENT_STATIC_LINKAGE",
+    "r32_stage": "1013R_R32_DERIVATIVE_PREVIEW_SAMPLE_ROOM"
+  },
+  "fixture_inputs": [
+    "课件入口找不到",
+    "这段教案太乱",
+    "帮我生成大屏",
+    "评价表怎么没有",
+    "我要保存这个课包"
+  ],
+  "visible_routes": [
+    {
+      "input": "课件入口找不到",
+      "intent": "find_courseware_entry",
+      "frame_level": 3,
+      "frame_level_key": "tool_frame",
+      "frame_level_path": [
+        {
+          "level": 2,
+          "level_key": "room_workspace",
+          "teacher_name": "各室工作空间框架",
+          "target_marker": "data-shiwei-frame-level=2"
+        },
+        {
+          "level": 3,
+          "level_key": "tool_frame",
+          "teacher_name": "工具框架",
+          "target_marker": "data-shiwei-frame-level=3"
+        }
+      ],
+      "room_id": "prep_room",
+      "tool_group_id": "derivatives",
+      "tool_group_label": "课堂派生物",
+      "tool_id": "courseware_workspace",
+      "tool_label": "课件",
+      "slot_id": "courseware_script",
+      "target_selectors": [
+        ".courseware-screen-mini, .courseware-screen-card, .courseware-screen-row, [data-r21-field-anchor='derivative_linkage']",
+        ".courseware-screen-mini, .courseware-screen-card, .courseware-screen-row, [data-r21-field-anchor='derivative_linkage']"
+      ],
+      "action_gate_required": false,
+      "blocked": false,
+      "blocked_reason": "",
+      "visible_result": "高亮课堂派生物里的课件工具，并定位到课件/大屏草稿内容区。",
+      "preview_only": true,
+      "formal_apply_allowed": false,
+      "runtime_call_allowed": false,
+      "model_call_allowed": false,
+      "source_route": {
+        "r27_operation": "clarify_or_continue",
+        "r27_command_type": "CLARIFY_KEY_SLOT",
+        "r27_route_reasons": [
+          "mentions_tool_or_action_frame",
+          "requires_recursive_diagnosis"
+        ]
+      }
+    },
+    {
+      "input": "这段教案太乱",
+      "intent": "diagnose_lesson_body_structure",
+      "frame_level": 4,
+      "frame_level_key": "content_rendering",
+      "frame_level_path": [
+        {
+          "level": 4,
+          "level_key": "content_rendering",
+          "teacher_name": "内容框架",
+          "target_marker": "data-shiwei-frame-level=4"
+        }
+      ],
+      "room_id": "prep_room",
+      "tool_group_id": "prep_design",
+      "tool_group_label": "备课设计",
+      "tool_id": "prep_notebook",
+      "tool_label": "备课本",
+      "slot_id": "teaching_process",
+      "target_selectors": [
+        ".nb-doc-section",
+        ".nb-flow-step"
+      ],
+      "action_gate_required": false,
+      "blocked": false,
+      "blocked_reason": "",
+      "visible_result": "定位到备课本正文和教学过程内容区，只提示结构问题，不改写正文。",
+      "preview_only": true,
+      "formal_apply_allowed": false,
+      "runtime_call_allowed": false,
+      "model_call_allowed": false,
+      "source_route": {
+        "r27_operation": "clarify_or_continue",
+        "r27_command_type": "NOOP",
+        "r27_route_reasons": [
+          "mentions_rendered_lesson_content"
+        ]
+      }
+    },
+    {
+      "input": "帮我生成大屏",
+      "intent": "preview_classroom_display",
+      "frame_level": 3,
+      "frame_level_key": "tool_frame",
+      "frame_level_path": [
+        {
+          "level": 3,
+          "level_key": "tool_frame",
+          "teacher_name": "工具框架",
+          "target_marker": "data-shiwei-frame-level=3"
+        }
+      ],
+      "room_id": "prep_room",
+      "tool_group_id": "derivatives",
+      "tool_group_label": "课堂派生物",
+      "tool_id": "classroom_display_preview",
+      "tool_label": "大屏",
+      "slot_id": "classroom_display_screen",
+      "target_selectors": [
+        ".courseware-screen-mini, .courseware-screen-card, .courseware-screen-row, [data-r21-field-anchor='derivative_linkage']"
+      ],
+      "action_gate_required": false,
+      "blocked": false,
+      "blocked_reason": "",
+      "visible_result": "高亮大屏工具和大屏预览草稿；只展示预览态，不导出、不生成正式课件。",
+      "preview_only": true,
+      "formal_apply_allowed": false,
+      "runtime_call_allowed": false,
+      "model_call_allowed": false,
+      "source_route": {
+        "r27_operation": "create",
+        "r27_command_type": "GENERATE_CANDIDATE",
+        "r27_route_reasons": [
+          "mentions_tool_or_action_frame"
+        ]
+      }
+    },
+    {
+      "input": "评价表怎么没有",
+      "intent": "assessment_rubric_missing",
+      "frame_level": 3,
+      "frame_level_key": "tool_frame",
+      "frame_level_path": [
+        {
+          "level": 3,
+          "level_key": "tool_frame",
+          "teacher_name": "工具框架",
+          "target_marker": "data-shiwei-frame-level=3"
+        }
+      ],
+      "room_id": "prep_room",
+      "tool_group_id": "evidence_and_assessment",
+      "tool_group_label": "依据与评价",
+      "tool_id": "source_evidence",
+      "tool_label": "资料来源与依据",
+      "slot_id": "assessment_rubric",
+      "target_selectors": [
+        ".nb-drawer, .nb-right-rail, details",
+        ".nb-drawer, .nb-right-rail"
+      ],
+      "action_gate_required": true,
+      "blocked": true,
+      "blocked_reason": "评价维度需教师确认",
+      "visible_result": "定位到评价表预览，并显示 blocked：评价维度需教师确认。",
+      "preview_only": true,
+      "formal_apply_allowed": false,
+      "runtime_call_allowed": false,
+      "model_call_allowed": false,
+      "source_route": {
+        "r27_operation": "clarify_or_continue",
+        "r27_command_type": "CLARIFY_KEY_SLOT",
+        "r27_route_reasons": [
+          "mentions_tool_or_action_frame"
+        ]
+      }
+    },
+    {
+      "input": "我要保存这个课包",
+      "intent": "save_package_requires_confirmation",
+      "frame_level": 3,
+      "frame_level_key": "tool_frame",
+      "frame_level_path": [
+        {
+          "level": 3,
+          "level_key": "tool_frame",
+          "teacher_name": "工具框架",
+          "target_marker": "data-shiwei-frame-level=3"
+        },
+        {
+          "level": 4,
+          "level_key": "content_rendering",
+          "teacher_name": "内容框架",
+          "target_marker": "data-shiwei-frame-level=4"
+        }
+      ],
+      "room_id": "prep_room",
+      "tool_group_id": "action_gate",
+      "tool_group_label": "动作门",
+      "tool_id": "teacher_action_gate",
+      "tool_label": "教师确认门",
+      "slot_id": "confirm_actions",
+      "target_selectors": [
+        ".nb-drawer, .nb-right-rail, [data-r21-field-anchor='action_gate']"
+      ],
+      "action_gate_required": true,
+      "blocked": true,
+      "blocked_reason": "保存/导出/归档需要教师确认，formal_apply_allowed=false",
+      "visible_result": "进入教师确认门；当前只能预览，不能保存、导出或写入正式课包。",
+      "preview_only": true,
+      "formal_apply_allowed": false,
+      "runtime_call_allowed": false,
+      "model_call_allowed": false,
+      "source_route": {
+        "r27_operation": "clarify_or_continue",
+        "r27_command_type": "ASK_CONFIRMATION",
+        "r27_route_reasons": [
+          "fallback_to_current_content_context"
+        ]
+      }
+    }
+  ],
+  "interaction_contract": {
+    "bottom_input_static_fixture_only": true,
+    "submit_shows_xiaojiao_judgement": true,
+    "submit_highlights_tool_or_slot": true,
+    "save_export_archive_enters_teacher_gate": true,
+    "real_generation_allowed": false,
+    "runtime_call_allowed": false,
+    "model_call_allowed": false,
+    "formal_apply_allowed": false
+  },
+  "generated_visual_policy": {
+    "marked_red_for_review": true,
+    "hide_after_review": true,
+    "machine_marker": "data-shiwei-generated-visual=true"
+  },
+  "boundary": {
+    "old_material_runtime_bridge": true,
+    "runtime_connected": false,
+    "runtime_write_allowed": false,
+    "reuse_previous_material_first": true,
+    "new_system_created": false,
+    "preview_only": true,
+    "teacher_review_required": true,
+    "textbook_catalog_rearranged": true,
+    "textbook_ocr_available": false,
+    "ai_generated_source_reference_only": true,
+    "source_material_standard_alignment_allowed": false,
+    "field_schema_standard_alignment_allowed": false,
+    "provider_called": false,
+    "model_called": false,
+    "database_written": false,
+    "memory_written": false,
+    "vector_index_written": false,
+    "feishu_written": false,
+    "formal_apply_performed": false,
+    "R36_modified": false,
+    "main_shell_modified": false,
+    "main_project_pushed": false,
+    "stage": "1013R_R33_XIAOJIAO_STATIC_INTENT_TO_VISIBLE_FRAME",
+    "single_lesson_viewmodel_readonly": true,
+    "render_hydration_ready": true,
+    "text_replace_bridge_only": false,
+    "formal_frontend_binding_performed": false,
+    "task_state_contract_readonly": true,
+    "render_surface_map_defined": true,
+    "teacher_action_gate_defined": true,
+    "unified_viewmodel_defined": true,
+    "source_policy_validator_defined": true,
+    "render_blocks_protocol_defined": true,
+    "light_render_adapter_defined": true,
+    "route_registered": false,
+    "teacher_action_gate_contract_readonly": true,
+    "task_state_contract_consumed": true,
+    "unified_viewmodel_readonly": true,
+    "source_policy_light_validator_readonly": true,
+    "render_blocks_protocol_readonly": true,
+    "light_render_adapter_readonly": true,
+    "existing_page_modified": false,
+    "derivative_object_linkage_readonly": true,
+    "derivative_static_linkage_defined": true,
+    "courseware_export_created": false,
+    "worksheet_export_created": false,
+    "assessment_written": false,
+    "unified_package_readonly_export": true,
+    "static_json_export_allowed": true,
+    "endpoint_registered": false,
+    "prototype_copy_created": false,
+    "page_copy_created": true,
+    "page_binds_unified_package": true,
+    "internal_prototype_binding": true,
+    "external_protocol_band_created": false,
+    "new_blank_static_page_created": false,
+    "source_prototype_modified": false,
+    "teacher_readability_smoke_defined": true,
+    "visual_2k_check_expected": true,
+    "teacher_walkthrough_script_defined": true,
+    "render_block_component_boundary_defined": true,
+    "component_implementation_created": false,
+    "four_level_frame_implementation_map_defined": true,
+    "history_viewer_used_as_index_only": true,
+    "openclaw_runtime_imported": false,
+    "openclaw_memory_imported": false,
+    "page_dom_modified": false,
+    "new_disconnected_page_created": false,
+    "page_copy_four_level_markers_defined": true,
+    "runtime_dom_data_markers_added": true,
+    "visible_layout_modified": false,
+    "intent_frame_router_fixture_defined": true,
+    "static_fixture_only": true,
+    "runtime_router_connected": false,
+    "semantic_runtime_called": false,
+    "room_workspace_registry_defined": true,
+    "derived_from_1013L_states": true,
+    "static_registry_only": true,
+    "new_room_runtime_created": false,
+    "tool_frame_registry_defined": true,
+    "derived_from_l5_and_r17_r24": true,
+    "tool_behavior_implemented": false,
+    "visible_frame_connector_defined": true,
+    "room_tool_slot_mapping_defined": true,
+    "current_R21_page_copy_generator_targeted": true,
+    "tool_content_static_linkage_defined": true,
+    "tool_click_highlight_only": true,
+    "navigation_creates_new_page": false,
+    "real_generation_performed": false,
+    "derivative_preview_sample_room_defined": true,
+    "courseware_preview_sample_defined": true,
+    "display_preview_sample_defined": true,
+    "worksheet_preview_sample_defined": true,
+    "assessment_preview_blocked_if_dimension_missing": true,
+    "real_export_created": false,
+    "xiaojiao_static_intent_visible_frame_defined": true,
+    "bottom_composer_static_fixture_bound": true,
+    "intent_fixture_only": true,
+    "static_fixture_count": 5,
+    "tool_highlight_only": true
+  },
+  "next_stage_recommendation": {
+    "stage": "1013R_R34_TEACHER_VISIBLE_SMOKE",
+    "why": "Static intent routes can now point to frame/tool/slot; next prove the teacher can see and understand it."
+  }
+}

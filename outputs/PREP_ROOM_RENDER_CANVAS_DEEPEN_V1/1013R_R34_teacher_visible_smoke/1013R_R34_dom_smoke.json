@@ -1,0 +1,20 @@
+{
+  "mode": "html_textual_smoke",
+  "checks": {
+    "current_space_prep_room_visible": true,
+    "tool_area_label_visible": true,
+    "content_area_labels_visible": true,
+    "xiaojiao_judgement_visible": true,
+    "preview_only_visible": true,
+    "formal_apply_false_visible": true,
+    "assessment_rubric_blocked_visible": true,
+    "generated_visual_red_markers_visible": true,
+    "hide_after_review_markers_visible": true
+  },
+  "pass": true,
+  "marker_counts": {
+    "generated_visual": 10,
+    "hide_after_review": 8,
+    "generated_source_stage": 8
+  }
+}
