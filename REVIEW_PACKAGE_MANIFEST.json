@@ -1,6 +1,6 @@
 {
   "package_id": "1013R_R33_R34_XIAOJIAO_STATIC_INTENT_VISIBLE_SMOKE_REVIEW",
-  "generated_at": "2026-06-27T12:48:06+00:00",
+  "generated_at": "2026-06-27T12:59:36+00:00",
   "source_repo": "D:\\Documents\\SmartEdu\\xiaobei-core",
   "target_dir": "D:\\Documents\\SmartEdu\\xiaobei-core\\outputs\\PREP_ROOM_RENDER_CANVAS_DEEPEN_V1\\1013R_R33_R34_xiaojiao_static_intent_visible_smoke_review",
   "copied_count": 33,
@@ -28,20 +28,20 @@
     {
       "path": "docs/1013R_R33_xiaojiao_static_intent_visible_frame.md",
       "copied": true,
-      "bytes": 1410,
-      "sha256": "53e90fa237adaf98913d24b8179193da013661960f39f6b79933f948491a4692"
+      "bytes": 1496,
+      "sha256": "9feb245747560ad64eb4e8e39c68e4ca22380c15889ae5230ea5065e78ca4118"
     },
     {
       "path": "docs/1013R_R34_teacher_visible_smoke.md",
       "copied": true,
-      "bytes": 1285,
-      "sha256": "20cc824c264a3644cc681e2d8d44cba64c66e5b941f433766f70dbd0bebc6689"
+      "bytes": 1286,
+      "sha256": "c3762742a5136086978142cf93a02a62aa4905994a5d77eae75ded3799344233"
     },
     {
       "path": "backend/xiaobei_ai/prep_room_page_copy_package_binding_1013R_R21.py",
       "copied": true,
-      "bytes": 105633,
-      "sha256": "32bf48809453912a05a7df2633c3e50001b9673a3021f7b7ec9a47724fee3f3f"
+      "bytes": 108494,
+      "sha256": "ffc1c6bb3748cbea455df3acb3cddb1ed3ccf077cbcac7de31b6960ebe1e7345"
     },
     {
       "path": "backend/xiaobei_ai/prep_room_visible_frame_connector_1013R_R30.py",
@@ -70,14 +70,14 @@
     {
       "path": "backend/xiaobei_ai/prep_room_teacher_visible_smoke_1013R_R34.py",
       "copied": true,
-      "bytes": 8760,
-      "sha256": "6d766fdcf42699e1a89902ec5f19e69138c69a3dcb555ddd45f9c52a00df0fbd"
+      "bytes": 8839,
+      "sha256": "28ee1e34a77b3b2a6c36f97affb7ff146cb69c1731c1ede6ae60529a87c616f0"
     },
     {
       "path": "scripts/validate_1013R_R21_page_copy_binds_unified_package.py",
       "copied": true,
-      "bytes": 15289,
-      "sha256": "ee36ca2fb005687cc1ee1206c8090a1b528c5b82e4d5332bbdd53a7f54e85415"
+      "bytes": 15358,
+      "sha256": "607b327a2e9b7b2a89d0383987b0e85faca91a395cb0145f5e0e13c069bb89dc"
     },
     {
       "path": "scripts/validate_1013R_R30_visible_frame_connector.py",
@@ -113,43 +113,43 @@
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R21_page_copy_binds_unified_package/1013R_R21_result.json",
       "copied": true,
       "bytes": 814,
-      "sha256": "0d4311a7e439d3abde158e97d940b2176941251ac5c52ea687a80429e05e5ab9"
+      "sha256": "4b14c245d677012bcd1ce7b96b4692ccc2644a04654df037f1fa39efb9816b3f"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R21_page_copy_binds_unified_package/prep_room_page_copy_binds_unified_package_1013R_R21.html",
       "copied": true,
-      "bytes": 1114273,
-      "sha256": "11a64af429cde052685fcefdfc0ff89f1ee8d485b0ed8120dd5a5dc88a62bcb3"
+      "bytes": 1117196,
+      "sha256": "12df725a3003def94cbf0b34b9b470bf31a15a95d3ac9bd49d264abf33e2343e"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R30_visible_frame_connector/1013R_R30_result.json",
       "copied": true,
       "bytes": 399,
-      "sha256": "ee1c531c51a7064c798587f16524f53b34e32bcefb0ac59da0850977ccee4fb9"
+      "sha256": "31b5a498f0e76bad59f6bda990b9d61170e24ddc90ac9325d5594d156ce56562"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R31_tool_content_static_linkage/1013R_R31_result.json",
       "copied": true,
       "bytes": 355,
-      "sha256": "852a6b718e33d469c5f95c8b355941fea337b2e2ebb31865ac2f4371511f1bc5"
+      "sha256": "e703c426563d35a205e53e187314745afc070848d924002fcfe640df3f5a8303"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R32_derivative_preview_sample_room/1013R_R32_result.json",
       "copied": true,
       "bytes": 400,
-      "sha256": "69a418f8b3335b398f74964bdc31a0cdf992ad33ff763198f87fb18792a576a0"
+      "sha256": "4c3e2097d21de0da8226b1f4b6a2001c76f255e12bd66a5d30bdae8865eb3226"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R33_xiaojiao_static_intent_visible_frame/1013R_R33_result.json",
       "copied": true,
       "bytes": 536,
-      "sha256": "24b3c228bacc3d72a31cb3ff4aae282796297ad89645b3dd8f206e969cf0f7ed"
+      "sha256": "a0ffdf414b1b1322125f27a9b56298efadc18faacb2887523bdf113d9b4dc789"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R33_xiaojiao_static_intent_visible_frame/1013R_R33_static_intent_visible_frame.json",
       "copied": true,
       "bytes": 12957,
-      "sha256": "47707a79ce0daa5b388bc357e5ff3c721758d2d6191ba7b054e262a9f72cca6e"
+      "sha256": "ac9c365e22df15e45993d9153c14b46cf3a1af1fc7e500b395f9844442555578"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R33_xiaojiao_static_intent_visible_frame/1013R_R33_report.md",
@@ -161,13 +161,13 @@
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R34_teacher_visible_smoke/1013R_R34_result.json",
       "copied": true,
       "bytes": 559,
-      "sha256": "ee24e41521f1007183acf61afc3410481291a1ac7c1b66da51f18adf60ce2de0"
+      "sha256": "655ab59f6f8bc68cceeffc14486339f0bb8c9b62299012c1983bf8e89f814066"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R34_teacher_visible_smoke/1013R_R34_dom_smoke.json",
       "copied": true,
-      "bytes": 584,
-      "sha256": "8c32c09cb1a1020a1a82a462968ca6ee4571be1ca78948798bc475540db1356f"
+      "bytes": 590,
+      "sha256": "cca53b7849f60859adb59bc36468da4d7de970f44452fee53b2d9a57b6cb0af4"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R34_teacher_visible_smoke/1013R_R34_screenshot_smoke.json",
@@ -190,8 +190,8 @@
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R34_teacher_visible_smoke/teacher_walkthrough.md",
       "copied": true,
-      "bytes": 1571,
-      "sha256": "1b3b2a78fe23b9c7873a732c51200d922b317735f514c375f507292a7953a7fe"
+      "bytes": 1643,
+      "sha256": "601b2924ac169151a0bf9b6a84893efa376c8647f24dc6fb56978c140df9ba58"
     },
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R34_teacher_visible_smoke/GPT_REVIEW_NOTE_1013R_R34.md",
@@ -202,8 +202,8 @@
     {
       "path": "outputs/PREP_ROOM_RENDER_CANVAS_DEEPEN_V1/1013R_R34_teacher_visible_smoke/prep_room_page_copy_binds_unified_package_1013R_R21.html",
       "copied": true,
-      "bytes": 1114273,
-      "sha256": "11a64af429cde052685fcefdfc0ff89f1ee8d485b0ed8120dd5a5dc88a62bcb3"
+      "bytes": 1117196,
+      "sha256": "12df725a3003def94cbf0b34b9b470bf31a15a95d3ac9bd49d264abf33e2343e"
     }
   ],
   "boundary": {
@@ -217,5 +217,5 @@
     "R36_modified": false
   },
   "zip_path": "D:\\Documents\\SmartEdu\\xiaobei-core\\outputs\\PREP_ROOM_RENDER_CANVAS_DEEPEN_V1\\1013R_R33_R34_XIAOJIAO_STATIC_INTENT_VISIBLE_SMOKE_REVIEW.zip",
-  "zip_sha256": "62f940e2adf32957d68001dc42b26469bf6a6ea27e0e49e3b5274962008ff15b"
+  "zip_sha256": "cc9cf2cb7b4fd6c3bc60a27edc034307f41c271c50a66c62afa0462e282992d0"
 }

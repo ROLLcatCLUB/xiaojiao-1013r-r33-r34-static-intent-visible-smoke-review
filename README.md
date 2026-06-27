@@ -13,7 +13,7 @@ R36_RUNTIME_PROVIDER_STAGE=HOLD
 - R33 maps five static Xiaojiao inputs to frame level, room, tool, slot, action gate, and visible result.
 - R33 injects a red review-only Xiaojiao judgement panel into the existing R21 page.
 - R34 outputs teacher walkthrough, DOM/textual smoke, screenshot fallback evidence, fixture matrix, and GPT review note.
-- All generated review overlays are red and carry `data-shiwei-generated-visual=true` plus `data-shiwei-hide-after-review=true`.
+- Red overlays mean delete/hide after review. Retained product content should keep the normal palette.
 
 ## Boundaries
 

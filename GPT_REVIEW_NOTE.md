@@ -14,7 +14,7 @@ Focus:
 
 1. Does the teacher-visible Xiaojiao judgement make sense for the five static inputs?
 2. Does every input map to `intent -> frame_level -> room_id -> tool_id -> slot_id -> visible_result`?
-3. Are generated review-only overlays visibly red and machine-searchable?
+3. Are delete/hide-after-review overlays visibly red and machine-searchable, while retained product content keeps normal color?
 4. Does assessment remain blocked until dimensions are confirmed?
 5. Does save/export/archive stay behind the teacher confirmation gate with `formal_apply_allowed=false`?
 6. Does the package still avoid runtime/provider/model/database/Feishu/memory/R36/formal apply?

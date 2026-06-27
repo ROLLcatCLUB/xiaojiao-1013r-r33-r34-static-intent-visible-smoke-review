@@ -91,7 +91,7 @@ def build_teacher_walkthrough() -> str:
 
 当前页面是“师维”的备课室，老师打开后应先确认自己在当前课 `2-1《色彩的渐变》` 的备课本里。
 
-右侧红色的“备课室工具”不是最终产品样式，而是审核生成物。它把后端已经验证过的工具关系临时露出来：备课本、大单元、单课负责备课设计；课件和大屏负责课堂派生物；资料和资料来源负责依据；教师确认门和小教推进入口负责动作门。
+右侧红色的“备课室工具”不是最终产品样式，而是审核期临时层。它把后端已经验证过的工具关系临时露出来：备课本、大单元、单课负责备课设计；课件和大屏负责课堂派生物；资料和资料来源负责依据；教师确认门和小教推进入口负责动作门。
 
 点这些红色工具时，页面只会滚动和高亮相关内容区。它不会新开页面，不会真的生成课件、大屏、学习单或评价表，也不会保存到正式课包。
 
@@ -101,7 +101,7 @@ def build_teacher_walkthrough() -> str:
 
 “我要保存这个课包”会进入教师确认门，并保持 `formal_apply_allowed=false`。当前只是审核可视化，不允许保存、导出、归档或写入正式备课本。
 
-所有红色区域都带有 `data-shiwei-generated-visual=true` 和 `data-shiwei-hide-after-review=true`，表示它们是审核期临时显性化内容，后续产品态可以隐藏或收拢。
+所有红色区域都带有 `data-shiwei-generated-visual=true` 和 `data-shiwei-hide-after-review=true`，表示它们是审核期临时显性化内容，后续产品态可以删除、隐藏或收拢。要保留进产品态的内容不应使用红色删除态。
 """
 
 
@@ -139,7 +139,7 @@ def build_dom_smoke(html: str) -> dict[str, Any]:
         "preview_only_visible": "preview_only=true" in html or 'data-preview-only="true"' in html,
         "formal_apply_false_visible": "formal_apply_allowed=false" in html or 'data-formal-apply-allowed="false"' in html,
         "assessment_rubric_blocked_visible": "assessment_rubric" in html and "blocked" in html,
-        "generated_visual_red_markers_visible": 'data-shiwei-generated-visual="true"' in html and "#b42323" in html,
+        "delete_or_hide_overlay_red_markers_visible": 'data-shiwei-hide-after-review="true"' in html and "#b42323" in html,
         "hide_after_review_markers_visible": 'data-shiwei-hide-after-review="true"' in html,
     }
     return {

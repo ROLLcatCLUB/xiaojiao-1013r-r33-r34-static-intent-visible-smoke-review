@@ -46,7 +46,7 @@ preview_only=true
 formal_apply_allowed=false
 ```
 
-## 红色审核生成物规则
+## 红色删除态规则
 
 R33 页面注入物必须标记：
 
@@ -56,4 +56,4 @@ data-shiwei-hide-after-review=true
 data-shiwei-generated-source-stage=1013R_R33_XIAOJIAO_STATIC_INTENT_TO_VISIBLE_FRAME
 ```
 
-这些节点是为了当前审核临时显性化，未来产品态可以隐藏或收进调试/审核层。
+这些节点是为了当前审核临时显性化，未来产品态可以删除、隐藏或收进调试层。需要保留进产品态的生成内容应使用常规色，不应使用红色删除态。

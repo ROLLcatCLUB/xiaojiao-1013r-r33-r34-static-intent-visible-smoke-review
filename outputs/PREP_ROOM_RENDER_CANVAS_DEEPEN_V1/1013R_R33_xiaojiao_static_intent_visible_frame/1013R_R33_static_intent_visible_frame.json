@@ -2,7 +2,7 @@
   "ok": true,
   "stage": "1013R_R33_XIAOJIAO_STATIC_INTENT_TO_VISIBLE_FRAME",
   "intent_visible_id": "SHIWEI_XIAOJIAO_STATIC_INTENT_VISIBLE_FRAME_R0",
-  "generated_at": "2026-06-27T12:47:46+00:00",
+  "generated_at": "2026-06-27T12:58:29+00:00",
   "consumes": {
     "r27_stage": "1013R_R27_XIAOJIAO_INTENT_FRAME_ROUTER_FIXTURE",
     "r30_stage": "1013R_R30_VISIBLE_FRAME_CONNECTOR",

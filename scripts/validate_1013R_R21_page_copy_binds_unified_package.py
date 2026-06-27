@@ -124,7 +124,6 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
         "data-shiwei-generated-visual=\"true\"",
         "data-shiwei-hide-after-review=\"true\"",
         "data-shiwei-generated-source-stage",
-        "审核生成物",
         "#b42323",
         "r33-intent-panel",
         "data-r33-xiaojiao-judgement",
@@ -144,6 +143,8 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
         fail(errors, "external_protocol_band_present")
     if "R21 原型副本 / 读取 R20" in html:
         fail(errors, "external_protocol_band_copy_present")
+    if ("审核" + "生成物") in html:
+        fail(errors, "visible_audit_generated_label_present")
     if html.count("data-r21-process-restored-count") < 1:
         fail(errors, "process_detail_restore_hook_missing")
     if not all(token in html for token in ["r21_intro", "r21_sense", "r21_explore", "r21_make", "r21_share"]):
@@ -225,10 +226,10 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
         if target not in internal_targets:
             fail(errors, f"internal_binding_target_missing:{target}")
     visible_requirements = binding.get("visible_requirements", {})
-    if visible_requirements.get("generated_visuals_marked_red_for_review") is not True:
-        fail(errors, "generated_visual_red_review_requirement_missing")
-    if visible_requirements.get("generated_visuals_hide_after_review_marked") is not True:
-        fail(errors, "generated_visual_hide_after_review_requirement_missing")
+    if visible_requirements.get("delete_or_hide_overlays_marked_red") is not True:
+        fail(errors, "delete_or_hide_overlay_red_requirement_missing")
+    if visible_requirements.get("delete_or_hide_overlays_machine_marked") is not True:
+        fail(errors, "delete_or_hide_overlay_machine_marker_requirement_missing")
     if visible_requirements.get("xiaojiao_static_intent_judgement_visible") is not True:
         fail(errors, "xiaojiao_static_intent_visible_requirement_missing")
     if visible_requirements.get("xiaojiao_static_intent_fixture_bound") is not True:

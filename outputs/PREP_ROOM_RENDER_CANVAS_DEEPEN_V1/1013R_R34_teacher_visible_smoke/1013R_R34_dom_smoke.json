@@ -8,13 +8,13 @@
     "preview_only_visible": true,
     "formal_apply_false_visible": true,
     "assessment_rubric_blocked_visible": true,
-    "generated_visual_red_markers_visible": true,
+    "delete_or_hide_overlay_red_markers_visible": true,
     "hide_after_review_markers_visible": true
   },
   "pass": true,
   "marker_counts": {
-    "generated_visual": 10,
-    "hide_after_review": 8,
+    "generated_visual": 9,
+    "hide_after_review": 30,
     "generated_source_stage": 8
   }
 }

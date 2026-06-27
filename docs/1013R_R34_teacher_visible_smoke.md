@@ -50,5 +50,5 @@ GPT_REVIEW_NOTE_1013R_R34.md
 存在小教判断区
 存在 preview_only / formal_apply_allowed=false
 assessment_rubric 保持 blocked
-审核生成物红色标记可检索
+删除/隐藏态红色标记可检索
 ```
