@@ -67,6 +67,18 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
         fail("assessment_fixture_not_blocked")
     if by_input.get("我要保存这个课包", {}).get("tool_id") != "teacher_action_gate":
         fail("save_fixture_not_routed_to_teacher_gate")
+    if by_input.get("课件入口找不到", {}).get("slot_id") != "courseware_entry":
+        fail("courseware_entry_fixture_not_routed_to_right_entry")
+    if by_input.get("帮我生成大屏", {}).get("slot_id") != "classroom_display_screen":
+        fail("display_fixture_not_routed_to_right_preview")
+    if by_input.get("评价表怎么没有", {}).get("slot_id") != "assessment_rubric":
+        fail("assessment_fixture_not_routed_to_rubric_preview")
+    if by_input.get("我要保存这个课包", {}).get("slot_id") != "package_save_gate":
+        fail("save_fixture_not_routed_to_package_save_gate")
+    for route in routes:
+        if route.get("tool_id") in {"courseware_workspace", "classroom_display_preview"}:
+            if any("derivative_linkage" in str(selector) for selector in route.get("target_selectors", [])):
+                fail(f"derivative_linkage_still_primary_target:{route.get('input')}")
     for token in [
         "r33-intent-panel",
         "data-r33-xiaojiao-judgement",
@@ -121,6 +133,17 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
             "each_input_targets_tool_or_slot": all(route.get("tool_id") and route.get("slot_id") for route in routes),
             "assessment_blocked": by_input.get("评价表怎么没有", {}).get("blocked") is True,
             "save_enters_teacher_gate": by_input.get("我要保存这个课包", {}).get("tool_id") == "teacher_action_gate",
+            "courseware_routes_to_right_entry": by_input.get("课件入口找不到", {}).get("slot_id") == "courseware_entry",
+            "display_routes_to_right_preview": by_input.get("帮我生成大屏", {}).get("slot_id")
+            == "classroom_display_screen",
+            "save_routes_to_package_save_gate": by_input.get("我要保存这个课包", {}).get("slot_id")
+            == "package_save_gate",
+            "flow_relation_not_primary_target": not any(
+                "derivative_linkage" in str(selector)
+                for route in routes
+                if route.get("tool_id") in {"courseware_workspace", "classroom_display_preview"}
+                for selector in route.get("target_selectors", [])
+            ),
             "generated_visuals_marked_red": "data-shiwei-generated-visual=\"true\"" in html and "#b42323" in html,
             "readonly_boundaries_intact": not any(code.startswith("boundary_broken") for code in errors),
         },

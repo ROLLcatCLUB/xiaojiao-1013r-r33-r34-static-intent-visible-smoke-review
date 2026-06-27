@@ -2,7 +2,7 @@
   "ok": true,
   "stage": "1013R_R33_XIAOJIAO_STATIC_INTENT_TO_VISIBLE_FRAME",
   "intent_visible_id": "SHIWEI_XIAOJIAO_STATIC_INTENT_VISIBLE_FRAME_R0",
-  "generated_at": "2026-06-27T12:58:29+00:00",
+  "generated_at": "2026-06-27T13:20:53+00:00",
   "consumes": {
     "r27_stage": "1013R_R27_XIAOJIAO_INTENT_FRAME_ROUTER_FIXTURE",
     "r30_stage": "1013R_R30_VISIBLE_FRAME_CONNECTOR",
@@ -41,15 +41,15 @@
       "tool_group_label": "课堂派生物",
       "tool_id": "courseware_workspace",
       "tool_label": "课件",
-      "slot_id": "courseware_script",
+      "slot_id": "courseware_entry",
       "target_selectors": [
-        ".courseware-screen-mini, .courseware-screen-card, .courseware-screen-row, [data-r21-field-anchor='derivative_linkage']",
-        ".courseware-screen-mini, .courseware-screen-card, .courseware-screen-row, [data-r21-field-anchor='derivative_linkage']"
+        "[data-r21-route-anchor='courseware_entry'], .courseware-rail, .courseware-r1e-left, .courseware-r1e-screen-list, .courseware-screen-mini",
+        "[data-r21-route-anchor='classroom_display_screen'], .courseware-rail, .courseware-r1e-main, .courseware-r1e-screen-frame, .courseware-r1c-screen-frame, .courseware-screen-mini"
       ],
       "action_gate_required": false,
       "blocked": false,
       "blocked_reason": "",
-      "visible_result": "高亮课堂派生物里的课件工具，并定位到课件/大屏草稿内容区。",
+      "visible_result": "定位到右侧大屏草稿里的课件制作入口，不再跳到左下角流程关系。",
       "preview_only": true,
       "formal_apply_allowed": false,
       "runtime_call_allowed": false,
@@ -66,9 +66,15 @@
     {
       "input": "这段教案太乱",
       "intent": "diagnose_lesson_body_structure",
-      "frame_level": 4,
-      "frame_level_key": "content_rendering",
+      "frame_level": 1,
+      "frame_level_key": "platform_shell",
       "frame_level_path": [
+        {
+          "level": 1,
+          "level_key": "platform_shell",
+          "teacher_name": "平台外壳框架",
+          "target_marker": "data-shiwei-frame-level=1"
+        },
         {
           "level": 4,
           "level_key": "content_rendering",
@@ -81,15 +87,15 @@
       "tool_group_label": "备课设计",
       "tool_id": "prep_notebook",
       "tool_label": "备课本",
-      "slot_id": "teaching_process",
+      "slot_id": "xiaojiao_task_state",
       "target_selectors": [
-        ".nb-doc-section",
-        ".nb-flow-step"
+        "[data-r21-route-anchor='current_lesson_prep_entry'], .nb-hero",
+        "[data-r21-route-anchor='lesson_basis'], .nb-doc-section"
       ],
       "action_gate_required": false,
       "blocked": false,
       "blocked_reason": "",
-      "visible_result": "定位到备课本正文和教学过程内容区，只提示结构问题，不改写正文。",
+      "visible_result": "先定位到顶部小教状态/判断区，给出初步整理方向，再由老师决定具体跳到哪段。",
       "preview_only": true,
       "formal_apply_allowed": false,
       "runtime_call_allowed": false,
@@ -122,12 +128,12 @@
       "tool_label": "大屏",
       "slot_id": "classroom_display_screen",
       "target_selectors": [
-        ".courseware-screen-mini, .courseware-screen-card, .courseware-screen-row, [data-r21-field-anchor='derivative_linkage']"
+        "[data-r21-route-anchor='classroom_display_screen'], .courseware-rail, .courseware-r1e-main, .courseware-r1e-screen-frame, .courseware-r1c-screen-frame, .courseware-screen-mini"
       ],
       "action_gate_required": false,
       "blocked": false,
       "blocked_reason": "",
-      "visible_result": "高亮大屏工具和大屏预览草稿；只展示预览态，不导出、不生成正式课件。",
+      "visible_result": "定位到右侧大屏预览/大屏草稿；只展示预览态，不导出、不生成正式课件。",
       "preview_only": true,
       "formal_apply_allowed": false,
       "runtime_call_allowed": false,
@@ -166,7 +172,7 @@
       "action_gate_required": true,
       "blocked": true,
       "blocked_reason": "评价维度需教师确认",
-      "visible_result": "定位到评价表预览，并显示 blocked：评价维度需教师确认。",
+      "visible_result": "定位到右侧评价表预览，并显示 blocked：评价维度需教师确认。",
       "preview_only": true,
       "formal_apply_allowed": false,
       "runtime_call_allowed": false,
@@ -203,14 +209,15 @@
       "tool_group_label": "动作门",
       "tool_id": "teacher_action_gate",
       "tool_label": "教师确认门",
-      "slot_id": "confirm_actions",
+      "slot_id": "package_save_gate",
       "target_selectors": [
-        ".nb-drawer, .nb-right-rail, [data-r21-field-anchor='action_gate']"
+        "[data-r21-route-anchor='teacher_confirm_gate'], .nb-hero-actions, [data-r21-field-anchor='action_gate'], .nb-drawer, .nb-right-rail",
+        "[data-r21-route-anchor='package_save_gate'], [data-r21-field-anchor='action_gate']"
       ],
       "action_gate_required": true,
       "blocked": true,
       "blocked_reason": "保存/导出/归档需要教师确认，formal_apply_allowed=false",
-      "visible_result": "进入教师确认门；当前只能预览，不能保存、导出或写入正式课包。",
+      "visible_result": "定位到右侧保存/导出说明；当前只是预览说明，不能写入正式课包。",
       "preview_only": true,
       "formal_apply_allowed": false,
       "runtime_call_allowed": false,

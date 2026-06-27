@@ -123,18 +123,6 @@ def _internal_binding_style() -> str:
       font-size: 12px;
       line-height: 1.45;
     }
-    [data-1013r-r21-internal-bound="true"] .r21-derived-mini {
-      display: grid;
-      gap: 5px;
-      margin-top: 8px;
-    }
-    [data-1013r-r21-internal-bound="true"] .r21-derived-mini span {
-      border-left: 3px solid rgba(66, 108, 95, .35);
-      padding-left: 7px;
-      color: #20342f;
-      font-size: 12px;
-      line-height: 1.45;
-    }
     [data-1013r-r21-internal-bound="true"] .r36-edit-bubble {
       width: min(462px, calc(100vw - 30px)) !important;
       max-width: calc(100vw - 30px) !important;
@@ -881,7 +869,9 @@ def _internal_binding_script(package: dict[str, Any]) -> str:
         ".nb-flow-step",
         ".nb-drawer",
         "data-r33-xiaojiao-judgement",
-        "data-1013r-r33-static-intent-visible-frame"
+        "data-1013r-r33-static-intent-visible-frame",
+        "data-r21-route-anchor",
+        "markTeacherRouteAnchors",
       ];
       const dataNode = document.getElementById("data-1013R-R21-unified-package");
       const packageData = JSON.parse(dataNode?.textContent || "{{}}");
@@ -1285,6 +1275,51 @@ def _internal_binding_script(package: dict[str, Any]) -> str:
         document.documentElement.setAttribute("data-1013r-r32-derivative-preview-samples", "true");
       }}
 
+      function markTeacherRouteAnchors() {{
+        const mark = (node, anchor, slotId) => {{
+          if (!node) return 0;
+          node.setAttribute("data-r21-route-anchor", anchor);
+          node.setAttribute("data-shiwei-slot-id", slotId || anchor);
+          return 1;
+        }};
+        let count = 0;
+        count += mark(document.querySelector(".nb-hero"), "current_lesson_prep_entry", "current_lesson_prep_entry");
+        count += mark(document.querySelector(".nb-panel"), "big_unit_catalog", "big_unit_catalog");
+        count += mark(document.querySelector("[data-node^='nb-lesson']") || document.querySelector(".nb-panel"), "single_lesson_catalog", "single_lesson_catalog");
+        const sections = Array.from(document.querySelectorAll(".nb-doc-section"));
+        const basis = sections.find((section) => (section.querySelector(".nb-doc-section-head")?.textContent || section.textContent || "").includes("本课依据"));
+        count += mark(basis || sections[0], "lesson_basis", "lesson_basis");
+        count += mark(document.querySelector(".courseware-rail [data-courseware-expanded='true']") || document.querySelector(".courseware-rail") || document.querySelector(".courseware-r1e-left"), "courseware_entry", "courseware_entry");
+        count += mark(document.querySelector(".courseware-r1e-screen-frame") || document.querySelector(".courseware-r1c-screen-frame") || document.querySelector(".courseware-rail") || document.querySelector(".courseware-screen-mini"), "classroom_display_screen", "classroom_display_screen");
+        count += mark(document.querySelector("[data-r32-derivative-id='assessment_rubric']"), "assessment_rubric", "assessment_rubric");
+        count += mark(document.querySelector(".nb-hero-actions") || document.querySelector("[data-r21-field-anchor='action_gate']"), "teacher_confirm_gate", "confirm_actions");
+        const drawer = document.querySelector(".nb-drawer, .nb-right-rail");
+        if (drawer && !drawer.querySelector("[data-r21-route-anchor='package_save_gate']")) {{
+          drawer.insertAdjacentHTML("beforeend", '<div class="r21-inline-note" data-r21-route-anchor="package_save_gate" data-shiwei-slot-id="package_save_gate">保存/导出说明：当前只是课包预览；未写入正式课包，未正式导出，教师确认后才进入保存或导出。</div>');
+          count += 1;
+        }} else {{
+          count += mark(document.querySelector("[data-r21-route-anchor='package_save_gate']"), "package_save_gate", "package_save_gate");
+        }}
+        count += mark(document.querySelector(".xiaobei-chat-entry") || document.getElementById("chatInput"), "xiaojiao_bottom_entry", "bottom_composer");
+        document.documentElement.setAttribute("data-r21-teacher-route-anchors", String(count));
+        window.__PREP_ROOM_R21_TEACHER_ROUTE_ANCHORS__ = {{
+          count,
+          anchors: [
+            "current_lesson_prep_entry",
+            "lesson_basis",
+            "big_unit_catalog",
+            "single_lesson_catalog",
+            "courseware_entry",
+            "classroom_display_screen",
+            "assessment_rubric",
+            "teacher_confirm_gate",
+            "package_save_gate",
+            "xiaojiao_bottom_entry",
+          ],
+        }};
+        return count;
+      }}
+
       function clearContentHighlights() {{
         document.querySelectorAll(".r31-content-highlight").forEach((node) => node.classList.remove("r31-content-highlight"));
       }}
@@ -1468,19 +1503,13 @@ def _internal_binding_script(package: dict[str, Any]) -> str:
         if (drawer && !drawer.querySelector("[data-r21-field-anchor='action_gate']")) {{
           drawer.insertAdjacentHTML("beforeend", '<div class="r21-inline-note" data-r21-field-anchor="action_gate">确认门已进入右侧状态卡：保存、导出、评价写入仍为阻断或待确认。</div>');
         }}
-        const flowSteps = Array.from(document.querySelectorAll(".nb-flow-step")).slice(0, 5);
-        const links = packageData.derivative_linkage?.process_derivative_links || [];
-        flowSteps.forEach((step, index) => {{
-          if (step.querySelector("[data-r21-field-anchor='derivative_linkage']")) return;
-          const link = links[index] || {{}};
-          step.insertAdjacentHTML("beforeend", `<div class="r21-derived-mini" data-r21-field-anchor="derivative_linkage"><span>课件：${{esc(link.courseware_screen?.title || "预览")}}</span><span>大屏：${{esc(link.classroom_display?.student_visible_prompt || "预览")}}</span><span>评价：${{esc(link.assessment_rubric?.render_state || "待确认")}}</span></div>`);
-        }});
         window.__PREP_ROOM_R21_INTERNAL_BOUND__ = true;
         window.__PREP_ROOM_R21_UNIFIED_PACKAGE__ = packageData;
         markFourLevelFrames();
         renderFrameStrip();
         renderVisibleToolPanel();
         markToolSlotAttributes();
+        markTeacherRouteAnchors();
       }}
 
       function restoreProcessStepDetails() {{
@@ -1926,12 +1955,14 @@ def _internal_binding_script(package: dict[str, Any]) -> str:
         renderFrameStrip();
         renderVisibleToolPanel();
         markToolSlotAttributes();
+        markTeacherRouteAnchors();
         bindXiaojiaoStaticIntent();
         window.setTimeout(decorateInternalDom, 80);
         window.setTimeout(markFourLevelFrames, 82);
         window.setTimeout(renderFrameStrip, 83);
         window.setTimeout(renderVisibleToolPanel, 84);
         window.setTimeout(markToolSlotAttributes, 84);
+        window.setTimeout(markTeacherRouteAnchors, 84);
         window.setTimeout(bindXiaojiaoStaticIntent, 84);
         window.setTimeout(restoreProcessStepDetails, 85);
         window.setTimeout(ensureBigUnitEditActions, 88);
@@ -1944,6 +1975,7 @@ def _internal_binding_script(package: dict[str, Any]) -> str:
         window.setTimeout(renderFrameStrip, 263);
         window.setTimeout(renderVisibleToolPanel, 264);
         window.setTimeout(markToolSlotAttributes, 264);
+        window.setTimeout(markTeacherRouteAnchors, 264);
         window.setTimeout(bindXiaojiaoStaticIntent, 264);
         window.setTimeout(restoreProcessStepDetails, 265);
         window.setTimeout(ensureBigUnitEditActions, 268);
@@ -1970,6 +2002,7 @@ def _internal_binding_script(package: dict[str, Any]) -> str:
           renderFrameStrip();
           renderVisibleToolPanel();
           markToolSlotAttributes();
+          markTeacherRouteAnchors();
           bindXiaojiaoStaticIntent();
         }});
         observer.observe(document.body, {{ childList: true, subtree: true, attributes: true, attributeFilter: ["class"] }});
@@ -2038,6 +2071,8 @@ def build_page_copy_binding() -> dict[str, Any]:
             "r33-intent-panel",
             "data-r33-xiaojiao-judgement",
             "data-1013r-r33-static-intent-visible-frame",
+            "data-r21-route-anchor",
+            "markTeacherRouteAnchors",
         ],
         "visible_requirements": {
             "current_object_visible": True,
@@ -2046,7 +2081,7 @@ def build_page_copy_binding() -> dict[str, Any]:
             "teacher_action_gate_visible": True,
             "source_policy_visible": True,
             "render_blocks_mapped_to_existing_fields": True,
-            "derivative_linkage_embedded_in_process_steps": True,
+            "derivative_linkage_not_embedded_in_process_steps": True,
             "visible_frame_connector_present": True,
             "tool_content_static_linkage_present": True,
             "derivative_preview_sample_room_present": True,
@@ -2054,6 +2089,8 @@ def build_page_copy_binding() -> dict[str, Any]:
             "delete_or_hide_overlays_machine_marked": True,
             "xiaojiao_static_intent_judgement_visible": True,
             "xiaojiao_static_intent_fixture_bound": True,
+            "teacher_route_anchors_present": True,
+            "flow_relation_not_primary_route_target": True,
             "not_chatbox_centered": True,
             "prototype_base_preserved": True,
             "no_external_protocol_band": True,

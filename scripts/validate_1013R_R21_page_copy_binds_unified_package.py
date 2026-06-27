@@ -131,6 +131,12 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
         "activateStaticIntentRoute",
         "data-1013r-r33-static-intent-visible-frame",
         "小教判断",
+        "markTeacherRouteAnchors",
+        "data-r21-route-anchor",
+        "lesson_basis",
+        "courseware_entry",
+        "classroom_display_screen",
+        "package_save_gate",
     ]
     for token in required_tokens:
         if token not in html:
@@ -222,6 +228,8 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
         "r33-intent-panel",
         "data-r33-xiaojiao-judgement",
         "data-1013r-r33-static-intent-visible-frame",
+        "data-r21-route-anchor",
+        "markTeacherRouteAnchors",
     ]:
         if target not in internal_targets:
             fail(errors, f"internal_binding_target_missing:{target}")
@@ -234,6 +242,10 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
         fail(errors, "xiaojiao_static_intent_visible_requirement_missing")
     if visible_requirements.get("xiaojiao_static_intent_fixture_bound") is not True:
         fail(errors, "xiaojiao_static_intent_fixture_bound_requirement_missing")
+    if visible_requirements.get("teacher_route_anchors_present") is not True:
+        fail(errors, "teacher_route_anchor_requirement_missing")
+    if visible_requirements.get("flow_relation_not_primary_route_target") is not True:
+        fail(errors, "flow_relation_route_requirement_missing")
 
     blocked_true_flags = [
         "route_registered",
@@ -303,7 +315,8 @@ def validate() -> tuple[dict[str, Any], dict[str, Any], list[str]]:
             "internal_prototype_binding": boundary.get("internal_prototype_binding") is True,
             "teacher_visible_sections_present": not any(code.startswith("html_token_missing") for code in errors),
             "render_blocks_visible": "packageData.render_blocks" in html or '"render_blocks"' in html,
-            "derivative_linkage_visible": "derivative_linkage" in html and ".nb-flow-step" in html,
+            "derivative_linkage_kept_as_data_not_flow_target": "derivative_linkage" in html
+            and "r21-derived-mini" not in html,
             "process_steps_expanded": not any(code.startswith("process_") for code in errors),
             "big_unit_edit_card_grammar": "big_unit_edit_card_grammar_missing" not in errors,
             "prep_notebook_bottom_alignment": "prep_notebook_bottom_alignment_patch_missing" not in errors,

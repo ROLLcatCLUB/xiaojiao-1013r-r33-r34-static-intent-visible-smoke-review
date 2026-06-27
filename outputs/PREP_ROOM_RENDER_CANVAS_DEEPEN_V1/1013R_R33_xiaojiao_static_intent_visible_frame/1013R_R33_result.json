@@ -2,7 +2,7 @@
   "stage_id": "1013R_R33_XIAOJIAO_STATIC_INTENT_TO_VISIBLE_FRAME",
   "status": "PASS",
   "validator_pass": true,
-  "created_at": "2026-06-27T12:58:29+00:00",
+  "created_at": "2026-06-27T13:20:53+00:00",
   "checks": {
     "five_static_inputs_pass": true,
     "required_route_fields_present": true,
@@ -10,6 +10,10 @@
     "each_input_targets_tool_or_slot": true,
     "assessment_blocked": true,
     "save_enters_teacher_gate": true,
+    "courseware_routes_to_right_entry": true,
+    "display_routes_to_right_preview": true,
+    "save_routes_to_package_save_gate": true,
+    "flow_relation_not_primary_target": true,
     "generated_visuals_marked_red": true,
     "readonly_boundaries_intact": true
   },
