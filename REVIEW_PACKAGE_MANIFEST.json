@@ -1,6 +1,6 @@
 {
   "package_id": "1013R_R33_R34_XIAOJIAO_STATIC_INTENT_VISIBLE_SMOKE_REVIEW",
-  "generated_at": "2026-06-27T13:22:01+00:00",
+  "generated_at": "2026-06-27T13:30:54+00:00",
   "source_repo": "D:\\Documents\\SmartEdu\\xiaobei-core",
   "target_dir": "D:\\Documents\\SmartEdu\\xiaobei-core\\outputs\\PREP_ROOM_RENDER_CANVAS_DEEPEN_V1\\1013R_R33_R34_xiaojiao_static_intent_visible_smoke_review",
   "copied_count": 33,
@@ -217,5 +217,5 @@
     "R36_modified": false
   },
   "zip_path": "D:\\Documents\\SmartEdu\\xiaobei-core\\outputs\\PREP_ROOM_RENDER_CANVAS_DEEPEN_V1\\1013R_R33_R34_XIAOJIAO_STATIC_INTENT_VISIBLE_SMOKE_REVIEW.zip",
-  "zip_sha256": "847eb7186d86ffbc49b64c8e483112e5745458b7225e3ae5b683b801e3922cd2"
+  "zip_sha256": "c44f0741a0a44368340949e53425f23411d26ddbba974b73f14b3f3c51dc44eb"
 }
